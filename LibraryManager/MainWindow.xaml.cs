@@ -23,6 +23,7 @@ namespace LibraryManager
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Navigate(new Views.DataPage());
         }
     }
 }
