@@ -27,6 +27,7 @@
         </StackPanel>
 
         <DataGrid Grid.Row="1"
+                  IsReadOnly="True"
                   AutoGenerateColumns="False"
                   x:Name="UsersGrid">
 
@@ -42,7 +43,7 @@
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center">
             <Button Height="24" Click="Add_Click" Content="Выдать книгу" Width="150"/>
             <Button Height="24" Click="Edit_Click" Content="Редактировать" Width="150"/>
-            <Button Height="24" Click="Return_Click" Content="Отменить возврат" Width="150"/>
+            <Button Height="24" Click="Return_Click" Content="Отметить возврат" Width="150"/>
             <Button Height="24" Click="Delete_Click" Content="Удалить запись" Width="150"/>
         </StackPanel>
     </Grid>
