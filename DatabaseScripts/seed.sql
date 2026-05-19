@@ -1,3 +1,6 @@
+USE [LibraryDB]
+GO
+
 -- 1. Добавляем книги в таблицу [Books]
 INSERT INTO [dbo].[Books] ([Title], [Author], [Genre], [PublishYear], [IsAvailable]) VALUES 
 (N'Мастер и Маргарита', N'Михаил Булгаков', N'Классика', 1967, 1),
@@ -10,4 +13,9 @@ GO
 INSERT INTO [dbo].[IssuedBook] ([BookId], [ReaderName], [IssueDate], [ReturnDate]) VALUES 
 (3, N'Иванов Иван Иванович', '2026-05-10', NULL), -- Книга еще не возвращена (должник)
 (1, N'Петров Петр Петрович', '2026-05-01', '2026-05-15'); -- Книгу уже вернули
+GO
+
+-- 3. Добавляем тестового администратора (чтобы можно было войти в систему)
+INSERT INTO [dbo].[User] ([Login], [Password]) VALUES 
+(N'admin', N'admin');
 GO

@@ -26,6 +26,14 @@
           <Property Name="IssueDate" Type="date" Nullable="false" />
           <Property Name="ReturnDate" Type="date" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK_IssuedBook_Books">
           <End Role="Books" Type="Self.Books" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -43,6 +51,7 @@
         <EntityContainer Name="Хранилище LibraryDBModelContainer">
           <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IssuedBook" EntityType="Self.IssuedBook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_IssuedBook_Books" Association="Self.FK_IssuedBook_Books">
             <End Role="Books" EntitySet="Books" />
             <End Role="IssuedBook" EntitySet="IssuedBook" />
@@ -76,6 +85,14 @@
           <Property Name="ReturnDate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Book" Relationship="Self.FK_IssuedBook_Books" FromRole="IssuedBook" ToRole="Books" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <Association Name="FK_IssuedBook_Books">
           <End Role="Books" Type="Self.Book" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -93,6 +110,7 @@
         <EntityContainer Name="LibraryDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Books" EntityType="Self.Book" />
           <EntitySet Name="IssuedBooks" EntityType="Self.IssuedBook" />
+          <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_IssuedBook_Books" Association="Self.FK_IssuedBook_Books">
             <End Role="Books" EntitySet="Books" />
             <End Role="IssuedBook" EntitySet="IssuedBooks" />
@@ -124,6 +142,15 @@
                 <ScalarProperty Name="ReaderName" ColumnName="ReaderName" />
                 <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
                 <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="LibraryDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
