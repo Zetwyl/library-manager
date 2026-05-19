@@ -68,7 +68,14 @@ namespace LibraryManager.Views
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-
+            if (UsersGrid.SelectedItem is IssuedBook selected)
+            {
+                NavigationService.Navigate(new EditIssuedBookPage(selected));
+            }
+            else
+            {
+                MessageBox.Show("Выберите запись для редактирования.");
+            }
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
