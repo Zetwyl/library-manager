@@ -24,8 +24,10 @@
 │   │   ├── Model1.edmx
 │   │   ├── AppData.cs        	# Класс для централизованного доступа к контексту БД
 │   │   ├── Book.cs           	# Модель книги
-│   │   └── IssuedBook.cs      	# Модель выданной книги
+│   │   ├── IssuedBook.cs       # Модель выданной книги
+│   │   └── User.cs             # Модель данных авторизации
 │   ├── Views/
+│   |   ├── SignInPage.xaml
 │   │   ├── DataPage.xaml
 │   │   ├── IssueBookPage.xaml
 │   │   └── EditIssuedBookPage.xaml
